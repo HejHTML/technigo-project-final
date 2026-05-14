@@ -1,6 +1,7 @@
 import express from "express"
 import cors from "cors"
 import mongoose from "mongoose"
+import scoreRoutes from "./routes/scores.js"
 
 const mongoUrl = process.env.MONGO_URL || "mongodb://localhost/final-project"
 mongoose.connect(mongoUrl)
@@ -16,11 +17,15 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 
+
 // Start defining your routes here
 // http://localhost:8080/
 app.get("/", (req, res) => {
   res.send("Hello Technigo!")
 })
+
+app.use("/scores", scoreRoutes)
+
 
 // Start the server
 app.listen(port, () => {
