@@ -11,6 +11,7 @@ export const App = () => {
   const [saved, setSaved] = useState(false)
 
   const [leaderboard, setLeaderboard] = useState([])
+  const [tickerRunning, setTickerRunning] = useState(true)
 
   // 🏆 Hämta leaderboard
   const fetchLeaderboard = async () => {
@@ -21,6 +22,14 @@ export const App = () => {
       console.log("Error fetching leaderboard:", error)
     }
   }
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setTickerRunning(false)
+    }, 15000)
+
+    return () => clearTimeout(timer)
+  }, [])
 
   useEffect(() => {
     fetchLeaderboard()
@@ -58,74 +67,111 @@ export const App = () => {
   // 🏁 RESULT PAGE
   if (finished) {
     return (
-      <div>
-        <h1>Quiz finished 🎉</h1>
+      <div className="app">
+        <div className="result-screen">
 
-        <h2>
-          Your score: {score} / {questions.length}
-        </h2>
+          <h1>Quiz finished 🎉</h1>
 
-        {!saved ? (
-          <>
-            <input
-              placeholder="Enter your name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-            />
+          <h2>
+            Your score: {score} / {questions.length}
+          </h2>
 
-            <button
-              onClick={saveScoreToBackend}
-              disabled={!name}
-            >
-              Save score
-            </button>
-          </>
-        ) : (
-          <p>Score saved ✅</p>
-        )}
+          {!saved ? (
+            <>
+              <input
+                placeholder="Enter your name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />
 
-        {/* 🏆 Leaderboard */}
-        <div className="leaderboard">
-          <h2>🏆 Leaderboard</h2>
+              <button
+                onClick={saveScoreToBackend}
+                disabled={!name}
+              >
+                Save score
+              </button>
+            </>
+          ) : (
+            <p>Score saved ✅</p>
+          )}
 
-          {leaderboard.map((item, index) => (
-            <div
-              className="leaderboard-card"
-              key={item._id}
-            >
-              <span className="rank">
-                #{index + 1}
-              </span>
+          {/* 🏆 Leaderboard */}
+          <div className="leaderboard">
+            <h2>🏆 Leaderboard</h2>
 
-              <span className="player-name">
-                {item.name}
-              </span>
+            {leaderboard.map((item, index) => (
+              <div
+                className="leaderboard-card"
+                key={item._id}
+              >
+                <span className="rank">
+                  #{index + 1}
+                </span>
 
-              <span className="player-score">
-                {item.score} pts
-              </span>
-            </div>
-          ))}
+                <span className="player-name">
+                  {item.name}
+                </span>
+
+                <span className="player-score">
+                  {item.score} pts
+                </span>
+              </div>
+            ))}
+          </div>
+
         </div>
       </div>
     )
   }
 
+
   // 🎮 QUIZ PAGE
   return (
-    <div>
-      <h1>{questions[current].question}</h1>
 
-      {questions[current].options.map((option) => (
-        <button
-          key={option}
-          onClick={() => handleAnswer(option)}
-        >
-          {option}
-        </button>
-      ))}
+    <>
+      {/* 🔥 TICKER (ska ligga här) */}
+      <div className={`ticker ${tickerRunning ? "" : "fade"}`}>
+        <div className="ticker-track">
+          <span>• IS YOUR PASSWORD GOOD ENOUGH? •</span>
+          <span>⚡ TEST YOUR KNOWLEDGE IN CYBERSECURITY ⚡</span>
+          <span>• BECOME WISER WITH CYBERWISE •</span>
+          <span>⚡ BEGINNER LEVEL ⚡</span>
+          <span>⚡ TEST YOUR KNOWLEDGE IN CYBERSECURITY ⚡</span>
+          <span>• BECOME WISER WITH CYBERWISE •</span>
+          <span>⚡ LET'S GO! ⚡</span>
+        </div>
+      </div >
 
-      <p>Score: {score}</p>
-    </div>
+      <div className="app">
+        <div className="quiz-card">
+
+          <p className="question-count">
+            Question {current + 1} / {questions.length}
+          </p>
+
+          <h1 className="question">
+            {questions[current].question}
+          </h1>
+
+          <div className="answers">
+            {questions[current].options.map((option) => (
+              <button
+                key={option}
+                onClick={() => handleAnswer(option)}
+                className="answer-button"
+              >
+                {option}
+              </button>
+            ))}
+          </div>
+
+          <p className="score">
+            Score: {score}
+          </p>
+
+        </div>
+
+      </div>
+    </>
   )
 }
