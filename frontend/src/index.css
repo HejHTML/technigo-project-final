@@ -225,6 +225,14 @@ body::before {
     font-weight: bold;
 }
 
+.error-message {
+    margin-top: 12px;
+    color: #ff4d4d;
+    font-size: 0.9rem;
+    text-align: center;
+    text-shadow: 0 0 10px rgba(255, 77, 77, 0.3);
+}
+
 /* LEADERBOARD */
 .leaderboard {
     width: 100%;

@@ -1,19 +1,26 @@
+import { useQuiz } from "./context/QuizContext"
 import { useState, useEffect } from "react"
 import axios from "axios"
 import { questions } from "./data/questions"
 
 export const App = () => {
-  const [current, setCurrent] = useState(0)
-  const [score, setScore] = useState(0)
-  const [finished, setFinished] = useState(false)
+  const {
+    score,
+    setScore,
+    name,
+    setName,
+    saved,
+    setSaved
+  } = useQuiz()
 
-  const [name, setName] = useState("")
-  const [saved, setSaved] = useState(false)
+  const [current, setCurrent] = useState(0)
+  const [finished, setFinished] = useState(false)
+  const [errorMessage, setErrorMessage] = useState("")
 
   const [leaderboard, setLeaderboard] = useState([])
   const [tickerRunning, setTickerRunning] = useState(true)
 
-  // 🏆 Hämta leaderboard
+  // 🏆 Fetch leaderboard
   const fetchLeaderboard = async () => {
     try {
       const res = await axios.get("http://localhost:8080/scores")
@@ -23,6 +30,7 @@ export const App = () => {
     }
   }
 
+  // 🎬 ticker auto stop
   useEffect(() => {
     const timer = setTimeout(() => {
       setTickerRunning(false)
@@ -31,10 +39,12 @@ export const App = () => {
     return () => clearTimeout(timer)
   }, [])
 
+  // 🏆 reload leaderboard when saved changes
   useEffect(() => {
     fetchLeaderboard()
   }, [saved])
 
+  // 🎯 handle answer
   const handleAnswer = (option) => {
     const correct = questions[current].answer
 
@@ -51,16 +61,27 @@ export const App = () => {
     }
   }
 
+  // 💾 save score
   const saveScoreToBackend = async () => {
+    const trimmedName = name.trim()
+
+    if (trimmedName.length < 4) {
+      setErrorMessage("Name must be at least 4 characters")
+      return
+    }
+
     try {
       await axios.post("http://localhost:8080/scores", {
-        name,
+        name: trimmedName,
         score
       })
 
       setSaved(true)
+      setErrorMessage("")
+
     } catch (error) {
       console.log("Error saving score:", error)
+      setErrorMessage("Could not save score. Please try again.")
     }
   }
 
@@ -81,15 +102,22 @@ export const App = () => {
               <input
                 placeholder="Enter your name"
                 value={name}
-                onChange={(e) => setName(e.target.value)}
+                onChange={(e) => {
+                  setName(e.target.value)
+                  setErrorMessage("")
+                }}
               />
 
               <button
                 onClick={saveScoreToBackend}
-                disabled={!name}
+                disabled={!name.trim()}
               >
                 Save score
               </button>
+
+              {errorMessage && (
+                <p className="error-message">{errorMessage}</p>
+              )}
             </>
           ) : (
             <p>Score saved ✅</p>
@@ -100,21 +128,10 @@ export const App = () => {
             <h2>🏆 Leaderboard</h2>
 
             {leaderboard.map((item, index) => (
-              <div
-                className="leaderboard-card"
-                key={item._id}
-              >
-                <span className="rank">
-                  #{index + 1}
-                </span>
-
-                <span className="player-name">
-                  {item.name}
-                </span>
-
-                <span className="player-score">
-                  {item.score} pts
-                </span>
+              <div className="leaderboard-card" key={item._id}>
+                <span className="rank">#{index + 1}</span>
+                <span className="player-name">{item.name}</span>
+                <span className="player-score">{item.score} pts</span>
               </div>
             ))}
           </div>
@@ -124,12 +141,10 @@ export const App = () => {
     )
   }
 
-
   // 🎮 QUIZ PAGE
   return (
-
     <>
-      {/* 🔥 TICKER (ska ligga här) */}
+      {/* 🔥 TICKER */}
       <div className={`ticker ${tickerRunning ? "" : "fade"}`}>
         <div className="ticker-track">
           <span>• IS YOUR PASSWORD GOOD ENOUGH? •</span>
@@ -140,7 +155,7 @@ export const App = () => {
           <span>• BECOME WISER WITH CYBERWISE •</span>
           <span>⚡ LET'S GO! ⚡</span>
         </div>
-      </div >
+      </div>
 
       <div className="app">
         <div className="quiz-card">
@@ -170,7 +185,6 @@ export const App = () => {
           </p>
 
         </div>
-
       </div>
     </>
   )
