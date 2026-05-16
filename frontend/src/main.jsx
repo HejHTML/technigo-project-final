@@ -1,11 +1,16 @@
 import React from "react"
 import ReactDOM from "react-dom/client"
+import { BrowserRouter } from "react-router-dom"
 import { App } from "./App"
 import { QuizProvider } from "./context/QuizContext"
 import "./index.css"
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <QuizProvider>
-    <App />
-  </QuizProvider>
+  <React.StrictMode>
+    <QuizProvider>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </QuizProvider>
+  </React.StrictMode>
 )
