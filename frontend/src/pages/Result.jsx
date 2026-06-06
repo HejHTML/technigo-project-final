@@ -75,7 +75,7 @@ export const Result = () => {
 
                 <h2>Ditt resultat: {score}</h2>
 
-                {!saved ? (
+                {!true ? (
                     <>
                         <input
                             placeholder="Fyll i ditt namn"
