@@ -26,10 +26,10 @@ export const Quiz = () => {
 
         return () => clearTimeout(timer)
     }, [])
-
     const handleAnswer = (option) => {
         const correct = questions[current].answer
 
+        // markera svar direkt
         setSelected(option)
         setShowResult(true)
 
@@ -37,24 +37,27 @@ export const Quiz = () => {
             setScore((prev) => prev + 1)
         }
 
-        // 🟢 LÅT SVARET SYNAS
+        // ge tid att visa rätt/fel
         setTimeout(() => {
             setAnimating(true)
 
+            // start slide-out
             setTimeout(() => {
                 const next = current + 1
 
                 if (next < questions.length) {
                     setCurrent(next)
-
-                    setAnimating(false)
-                    setSelected(null)
-                    setShowResult(false)
                 } else {
                     navigate("/result")
                 }
-            }, 800) // slide duration
-        }, 1500) // ⬅time to show answer feedback
+
+                // reset ALL UI state direkt efter byte
+                setSelected(null)
+                setShowResult(false)
+                setAnimating(false)
+
+            }, 600) // slide duration
+        }, 1200) // show feedback time
     }
 
     // 🟢 progress bar
