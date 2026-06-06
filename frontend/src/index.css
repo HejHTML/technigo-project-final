@@ -396,3 +396,55 @@ body::before {
 .ticker-track {
     will-change: transform;
 }
+
+button.play-again-btn {
+    width: 60%;
+    max-width: 320px;
+
+    padding: 14px 16px;
+    margin-top: 20px;
+
+    border-radius: 12px !important;
+
+    border: 1px solid rgba(0, 255, 140, 0.4) !important;
+    background: rgba(0, 255, 140, 0.12) !important;
+
+    color: #eaffea;
+    font-size: 1rem;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    display: inline-block;
+}
+
+/* 🔄 PLAY AGAIN = exakt samma bredd som övriga knappar */
+.play-again-btn {
+    width: 60%;
+    max-width: 320px;
+
+    padding: 14px 16px;
+    margin-top: 16px;
+
+    border-radius: 12px;
+    border: 1px solid rgba(0, 255, 140, 0.4);
+    background: rgba(0, 255, 140, 0.12);
+
+    color: #eaffea;
+    font-size: 1rem;
+    font-weight: bold;
+
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    display: block;
+    /* 🔥 viktig: matchar input/spara */
+}

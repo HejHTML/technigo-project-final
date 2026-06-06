@@ -3,7 +3,6 @@ import { useState, useEffect } from "react"
 import axios from "axios"
 import { useNavigate } from "react-router-dom"
 
-// 🔥 NEW: central API URL
 const API_URL = "https://technigo-project-final-8cry.onrender.com"
 
 export const Result = () => {
@@ -35,7 +34,7 @@ export const Result = () => {
         fetchLeaderboard()
     }, [])
 
-    // 💾 save score
+    // 💾 save score (valfritt)
     const saveScoreToBackend = async () => {
         const trimmedName = name.trim()
 
@@ -58,7 +57,7 @@ export const Result = () => {
         }
     }
 
-    // 🔄 play again
+    // 🔄 play again (ALLTID tillgänglig)
     const handlePlayAgain = () => {
         setScore(0)
         setName("")
@@ -72,13 +71,13 @@ export const Result = () => {
             <div className="result-screen">
 
                 <h1>Test avklarat! 🎉</h1>
-
                 <h2>Ditt resultat: {score}</h2>
 
-                {!true ? (
+                {/* INPUT + SAVE (valfritt) */}
+                {!saved && (
                     <>
                         <input
-                            placeholder="Fyll i ditt namn"
+                            placeholder="Fyll i ditt namn (valfritt)"
                             value={name}
                             onChange={(e) => {
                                 setName(e.target.value)
@@ -97,18 +96,22 @@ export const Result = () => {
                             <p className="error-message">{errorMessage}</p>
                         )}
                     </>
-                ) : (
-                    <>
-                        <p>Ditt resultat är sparat ✅</p>
-
-                        <button
-                            onClick={handlePlayAgain}
-                            className="play-again-btn"
-                        >
-                            Gör test igen 🔄
-                        </button>
-                    </>
                 )}
+
+                {/* SAVED MESSAGE */}
+                {saved && (
+                    <p>Ditt resultat är sparat ✅</p>
+                )}
+
+                {/* 🔄 ALWAYS AVAILABLE BUTTON */}
+                <div style={{ marginTop: "20px" }}>
+                    <button
+                        onClick={handlePlayAgain}
+                        className="play-again-btn"
+                    >
+                        Spela igen 🔄
+                    </button>
+                </div>
 
                 {/* 🏆 Leaderboard */}
                 <div className="leaderboard">
