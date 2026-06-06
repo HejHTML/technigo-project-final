@@ -1,27 +1,105 @@
-# Final project
-This is a so called mono-repo, meaning it includes both frontend and backend. You will find three README files in this project, and how you decide to structure the information about your project is up to you.
+# 🧠 CyberWise Quiz – Final Project
+
+This is a fullstack mono-repo project built as a final assignment.  
+It includes both a **frontend (React)** and a **backend (Node.js + Express + MongoDB)**.
 
 ---
 
-Replace this readme with your own information about the project. You can include things like:
+# 🚀 Live links
 
-- Brief description of the assignment
-- How you approached the task, what tools and techniques you used, and how you planned it
-- If you had more time, what would be next?
-- How to run the project locally
+- 🌐 Frontend (Netlify): https://cyberwisetest.netlify.app
+- ⚙️ Backend (Render): https://technigo-project-final-8cry.onrender.com
 
-## View it live
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+---
 
+# 📌 Project description
 
-## Getting Started with the Project
+CyberWise Quiz is an interactive cybersecurity quiz application where users can test their knowledge of topics such as:
 
-### Dependency Installation & Startup Development Server
+- GDPR  
+- NIS2  
+- DORA  
+- General cybersecurity basics  
 
-Once cloned, navigate to the project's root directory and this project uses npm (Node Package Manager) to manage its dependencies.
+The application includes:
 
-The command below is a combination of installing dependencies, opening up the project on VS Code and it will run a development server on your terminal.
+- Multiple choice quiz system
+- Real-time score tracking
+- Immediate feedback (correct / wrong answers)
+- Progress bar
+- Animated transitions between questions
+- Leaderboard stored in MongoDB Atlas
+
+---
+
+# 🧠 How I approached the project
+
+The goal was to build a fullstack application with a clear separation between frontend and backend.
+
+### Frontend
+- Built with React
+- React Router for navigation
+- Context API for global state (score management)
+- Custom CSS with mobile-first responsive design
+- UI animations for better user experience
+
+### Backend
+- Node.js + Express API
+- MongoDB Atlas database
+- Mongoose for schema modeling
+- REST API for saving and retrieving scores
+
+### Planning
+The project was built step-by-step:
+1. Backend API + database setup
+2. Frontend quiz logic
+3. State management (score, questions)
+4. UI styling and responsiveness
+5. Animations and UX improvements
+6. Deployment (Render + Netlify)
+
+---
+
+# 📱 Responsiveness
+
+The application is fully responsive and works on:
+
+- Mobile (320px+)
+- Tablet
+- Desktop (up to 1600px)
+
+---
+
+# 🧪 If I had more time
+
+If I continued developing the project, I would:
+
+- Add user authentication
+- Add difficulty levels (easy / medium / hard)
+- Improve animations using Framer Motion
+- Add category selection (GDPR, NIS2, DORA separately)
+
+---
+
+# 🛠 Tech stack
+
+## Frontend
+- React
+- React Router
+- Context API
+- CSS (mobile-first)
+
+## Backend
+- Node.js
+- Express
+- MongoDB Atlas
+- Mongoose
+
+---
+
+# 📦 Getting started (local development)
+
+## 1. Clone the repository
 
 ```bash
-npm i && code . && npm run dev
-```
+git clone https://github.com/HejHTML/technigo-project-final.git
