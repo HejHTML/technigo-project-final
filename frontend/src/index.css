@@ -355,16 +355,16 @@ body::before {
 
 /* ANSWER STATES */
 .answer-button.correct {
-    background: #2ecc71 !important;
+    background: #24f37a7e !important;
     color: white !important;
-    border: 1px solid #2ecc71 !important;
+    border: 1px solid #256741db !important;
     box-shadow: 0 0 18px rgba(46, 204, 113, 0.4);
 }
 
 .answer-button.wrong {
-    background: #e74c3c !important;
+    background: #f24633b8 !important;
     color: white !important;
-    border: 1px solid #e74c3c !important;
+    border: 1px solid #822d23c6 !important;
     box-shadow: 0 0 18px rgba(231, 76, 60, 0.4);
 }
 
