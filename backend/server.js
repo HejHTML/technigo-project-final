@@ -1,10 +1,13 @@
+import dotenv from "dotenv"
+dotenv.config()
+
 import express from "express"
 import cors from "cors"
 import mongoose from "mongoose"
 import scoreRoutes from "./routes/scores.js"
 
 const mongoUrl = process.env.MONGO_URL || "mongodb://localhost/final-project"
-
+console.log("MONGO_URL =", process.env.MONGO_URL)
 mongoose.connect(mongoUrl)
 mongoose.Promise = Promise
 

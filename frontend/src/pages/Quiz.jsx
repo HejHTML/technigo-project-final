@@ -4,13 +4,14 @@ import { useQuiz } from "../context/QuizContext"
 import { questions } from "../data/questions"
 
 export const Quiz = () => {
-    const {
-        score,
-        setScore
-    } = useQuiz()
+    const { score, setScore } = useQuiz()
 
     const [current, setCurrent] = useState(0)
     const [tickerRunning, setTickerRunning] = useState(true)
+
+    // 🟢 NEW: answer feedback states
+    const [selected, setSelected] = useState(null)
+    const [showResult, setShowResult] = useState(false)
 
     const navigate = useNavigate()
 
@@ -23,22 +24,35 @@ export const Quiz = () => {
         return () => clearTimeout(timer)
     }, [])
 
-    // 🎯 answer logic
+    // 🧠 answer logic (UPDATED)
     const handleAnswer = (option) => {
         const correct = questions[current].answer
 
-        if (option === correct) {
+        setSelected(option)
+        setShowResult(true)
+
+        const isCorrect = option === correct
+
+        if (isCorrect) {
             setScore((prev) => prev + 1)
         }
 
-        const next = current + 1
+        setTimeout(() => {
+            const next = current + 1
 
-        if (next < questions.length) {
-            setCurrent(next)
-        } else {
-            navigate("/result")
-        }
+            setSelected(null)
+            setShowResult(false)
+
+            if (next < questions.length) {
+                setCurrent(next)
+            } else {
+                navigate("/result")
+            }
+        }, 1000)
     }
+
+    // 🟢 progress bar
+    const progress = ((current + 1) / questions.length) * 100
 
     return (
         <>
@@ -56,6 +70,14 @@ export const Quiz = () => {
             <div className="app">
                 <div className="quiz-card">
 
+                    {/* 🟢 PROGRESS BAR */}
+                    <div className="progress-container">
+                        <div
+                            className="progress-bar"
+                            style={{ width: `${progress}%` }}
+                        />
+                    </div>
+
                     <p className="question-count">
                         Question {current + 1} / {questions.length}
                     </p>
@@ -69,7 +91,12 @@ export const Quiz = () => {
                             <button
                                 key={option}
                                 onClick={() => handleAnswer(option)}
-                                className="answer-button"
+                                disabled={showResult}
+                                className={`answer-button
+  ${showResult && option === questions[current].answer ? "correct" : ""}
+  ${showResult && option === selected && option !== questions[current].answer ? "wrong" : ""}
+  ${!showResult && option === selected ? "selected" : ""}
+`}
                             >
                                 {option}
                             </button>
