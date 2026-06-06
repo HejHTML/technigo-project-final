@@ -3,6 +3,9 @@ import { useState, useEffect } from "react"
 import axios from "axios"
 import { useNavigate } from "react-router-dom"
 
+// 🔥 NEW: central API URL
+const API_URL = "https://technigo-project-final-8cry.onrender.com"
+
 export const Result = () => {
     const {
         score,
@@ -21,7 +24,7 @@ export const Result = () => {
     // 🏆 fetch leaderboard
     const fetchLeaderboard = async () => {
         try {
-            const res = await axios.get("http://localhost:8080/scores")
+            const res = await axios.get(`${API_URL}/scores`)
             setLeaderboard(res.data)
         } catch (error) {
             setErrorMessage("Kunde inte ladda leaderboard")
@@ -42,7 +45,7 @@ export const Result = () => {
         }
 
         try {
-            await axios.post("http://localhost:8080/scores", {
+            await axios.post(`${API_URL}/scores`, {
                 name: trimmedName,
                 score
             })
