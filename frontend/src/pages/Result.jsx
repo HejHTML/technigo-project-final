@@ -24,7 +24,7 @@ export const Result = () => {
             const res = await axios.get("http://localhost:8080/scores")
             setLeaderboard(res.data)
         } catch (error) {
-            setErrorMessage("Could not load leaderboard")
+            setErrorMessage("Kunde inte ladda leaderboard")
         }
     }
 
@@ -37,7 +37,7 @@ export const Result = () => {
         const trimmedName = name.trim()
 
         if (trimmedName.length < 4) {
-            setErrorMessage("Name must be at least 4 characters")
+            setErrorMessage("Namn måste vara minst 4 tecken")
             return
         }
 
@@ -51,7 +51,7 @@ export const Result = () => {
             setErrorMessage("")
             fetchLeaderboard()
         } catch (error) {
-            setErrorMessage("Could not save score. Please try again.")
+            setErrorMessage("Kunde inte spara resultatet")
         }
     }
 
@@ -68,14 +68,14 @@ export const Result = () => {
         <div className="app">
             <div className="result-screen">
 
-                <h1>Quiz finished 🎉</h1>
+                <h1>Test avklarat! 🎉</h1>
 
-                <h2>Your score: {score}</h2>
+                <h2>Ditt resultat: {score}</h2>
 
                 {!saved ? (
                     <>
                         <input
-                            placeholder="Enter your name"
+                            placeholder="Fyll i ditt namn"
                             value={name}
                             onChange={(e) => {
                                 setName(e.target.value)
@@ -87,7 +87,7 @@ export const Result = () => {
                             onClick={saveScoreToBackend}
                             disabled={!name.trim()}
                         >
-                            Save score
+                            Spara resultat
                         </button>
 
                         {errorMessage && (
@@ -96,26 +96,26 @@ export const Result = () => {
                     </>
                 ) : (
                     <>
-                        <p>Score saved ✅</p>
+                        <p>Ditt resultat är sparat ✅</p>
 
                         <button
                             onClick={handlePlayAgain}
                             className="play-again-btn"
                         >
-                            Improve your skills? 🔄
+                            Gör test igen 🔄
                         </button>
                     </>
                 )}
 
                 {/* 🏆 Leaderboard */}
                 <div className="leaderboard">
-                    <h2>🏆 Leaderboard</h2>
+                    <h2>🏆 Resultat</h2>
 
                     {leaderboard.map((item, index) => (
                         <div className="leaderboard-card" key={item._id}>
                             <span className="rank">#{index + 1}</span>
                             <span className="player-name">{item.name}</span>
-                            <span className="player-score">{item.score} pts</span>
+                            <span className="player-score">{item.score} poäng</span>
                         </div>
                     ))}
                 </div>

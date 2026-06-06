@@ -22,7 +22,7 @@ export const Quiz = () => {
     useEffect(() => {
         const timer = setTimeout(() => {
             setTickerRunning(false)
-        }, 15000)
+        }, 7000) // exakt match med animation
 
         return () => clearTimeout(timer)
     }, [])
@@ -89,7 +89,7 @@ export const Quiz = () => {
                         </div>
 
                         <p className="question-count">
-                            Question {current + 1} / {questions.length}
+                            Fråga {current + 1} / {questions.length}
                         </p>
 
                         <h1 className="question">
@@ -121,7 +121,7 @@ export const Quiz = () => {
                         </div>
 
                         <p className="score">
-                            Score: {score}
+                            Poäng: {score}
                         </p>
 
                     </div>
