@@ -76,7 +76,8 @@ If I continued developing the project, I would:
 
 - Add user authentication
 - Add difficulty levels (easy / medium / hard)
-- Improve animations using Framer Motion
+- Improve animations
+- Improve CSS and try to reduce "important"-rules.
 - Add category selection (GDPR, NIS2, DORA separately)
 
 ---
