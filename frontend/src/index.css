@@ -215,6 +215,9 @@ body::before {
     background: rgba(0, 0, 0, 0.35);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid rgba(0, 255, 140, 0.15);
+
+    opacity: 1;
+    animation: tickerFadeOut 12s ease forwards;
 }
 
 .ticker-track {
@@ -224,7 +227,7 @@ body::before {
     white-space: nowrap;
     padding: 8px 0;
 
-    animation: scrollText 15s linear infinite;
+    animation: scrollText 20s linear infinite;
     will-change: transform;
 }
 
@@ -279,11 +282,29 @@ body::before {
 
 @keyframes scrollText {
     0% {
-        transform: translateX(0%);
+        transform: translateX(100%);
     }
 
     100% {
-        transform: translateX(-50%);
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes tickerFadeOut {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    70% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-10px);
+        pointer-events: none;
     }
 }
 
