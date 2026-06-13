@@ -1,7 +1,11 @@
+/* =========================
+   🌱 BASE = MOBILE FIRST
+========================= */
+
 body {
     margin: 0;
     min-height: 100vh;
-    color: #eaffea;
+    color: #eaffead6;
 
     background: linear-gradient(-45deg,
             #020603,
@@ -28,14 +32,15 @@ body::before {
     pointer-events: none;
 }
 
-/* 📦 layout */
+/* 📦 LAYOUT (MOBILE DEFAULT) */
 .app {
-    min-height: 100vh;
+    min-height: auto;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    padding-top: 60px;
+    justify-content: flex-start;
+    align-items: stretch;
+
+    padding: 10px;
+    padding-top: 30px;
 }
 
 /* 🧠 CARD BASE */
@@ -44,12 +49,10 @@ body::before {
     width: 100%;
     max-width: 700px;
 
-    padding: 40px 30px;
-
-    border-radius: 20px;
+    padding: 24px 18px;
+    border-radius: 16px;
 
     background: rgba(5, 10, 8, 0.7);
-
     border: 1px solid rgba(0, 255, 140, 0.25);
 
     box-shadow:
@@ -63,7 +66,7 @@ body::before {
     overflow: hidden;
 }
 
-/* glow layer */
+/* glow */
 .quiz-card::before,
 .result-screen::before {
     content: "";
@@ -77,6 +80,46 @@ body::before {
     pointer-events: none;
 }
 
+/* TEXT */
+.question-count {
+    color: #00ff9d;
+    margin-bottom: 10px;
+}
+
+.question {
+    font-size: 1.3rem;
+    line-height: 1.3;
+    margin-bottom: 20px;
+
+    text-shadow:
+        0 0 10px rgba(0, 255, 140, 0.2),
+        0 0 25px rgba(0, 0, 0, 0.7);
+}
+
+/* ANSWERS */
+.answers {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.answer-button {
+    background: transparent;
+    border: 1px solid rgba(0, 255, 140, 0.5);
+    color: #eaffea;
+
+    padding: 14px;
+    border-radius: 12px;
+
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.answer-button:active {
+    transform: scale(0.98);
+}
+
 /* RESULT SCREEN */
 .result-screen {
     display: flex;
@@ -87,11 +130,11 @@ body::before {
 
 /* INPUT */
 .result-screen input {
-    width: 60%;
+    width: 100%;
     max-width: 320px;
 
-    padding: 14px 16px;
-    margin-top: 20px;
+    padding: 16px;
+    margin-top: 16px;
 
     border-radius: 12px;
     border: 1px solid rgba(0, 255, 140, 0.3);
@@ -100,31 +143,18 @@ body::before {
     color: #eaffea;
 
     font-size: 1rem;
-    outline: none;
-
-    transition: all 0.2s ease;
     text-align: center;
 
     backdrop-filter: blur(10px);
 }
 
-.result-screen input::placeholder {
-    color: rgba(234, 255, 234, 0.5);
-}
-
-.result-screen input:focus {
-    border-color: #00ff9d;
-    box-shadow: 0 0 15px rgba(0, 255, 140, 0.25);
-    transform: translateY(-1px);
-}
-
 /* BUTTON */
 .result-screen button {
-    width: 60%;
+    width: 100%;
     max-width: 320px;
 
-    padding: 14px 16px;
-    margin-top: 16px;
+    padding: 14px;
+    margin-top: 12px;
 
     border-radius: 12px;
     border: 1px solid rgba(0, 255, 140, 0.4);
@@ -141,70 +171,9 @@ body::before {
     backdrop-filter: blur(10px);
 }
 
-/* hover only desktop */
-@media (hover: hover) and (pointer: fine) {
-    .result-screen button:hover {
-        background: rgba(0, 255, 140, 0.25);
-        transform: translateY(-2px);
-        box-shadow: 0 0 18px rgba(0, 255, 140, 0.35);
-    }
-
-    .answer-button:hover {
-        background: rgba(0, 255, 140, 0.12);
-        transform: translateY(-2px);
-    }
-}
-
-.result-screen button:disabled {
-    opacity: 0.4;
-    cursor: not-allowed;
-    transform: none;
-    box-shadow: none;
-}
-
-/* TEXT */
-.question-count {
-    color: #00ff9d;
-    margin-bottom: 10px;
-}
-
-.question {
-    font-size: 2rem;
-    line-height: 1.3;
-    margin-bottom: 30px;
-
-    text-shadow:
-        0 0 10px rgba(0, 255, 140, 0.2),
-        0 0 25px rgba(0, 0, 0, 0.7);
-}
-
-/* ANSWERS */
-.answers {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-}
-
-.answer-button {
-    background: transparent;
-    border: 1px solid rgba(0, 255, 140, 0.5);
-    color: #eaffea;
-
-    padding: 16px;
-    border-radius: 12px;
-
-    font-size: 1rem;
-    transition: all 0.2s ease;
-    cursor: pointer;
-}
-
-.answer-button:active {
-    transform: scale(0.98);
-}
-
 /* SCORE */
 .score {
-    margin-top: 30px;
+    margin-top: 20px;
     color: #b7ffcc;
     font-weight: bold;
 }
@@ -213,7 +182,7 @@ body::before {
 .leaderboard {
     width: 100%;
     max-width: 350px;
-    margin: 40px auto 0;
+    margin: 30px auto 0;
 
     display: flex;
     flex-direction: column;
@@ -233,19 +202,68 @@ body::before {
     border: 1px solid rgba(0, 255, 140, 0.2);
 
     border-radius: 12px;
-    padding: 14px 18px;
-    margin-bottom: 12px;
+    padding: 12px 14px;
+    margin-bottom: 10px;
 
     backdrop-filter: blur(10px);
 }
 
-.rank {
-    color: #b7ffcc;
-    font-weight: bold;
+/* TICKER */
+.ticker {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+
+    background: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(0, 255, 140, 0.15);
 }
 
-.player-score {
+.ticker-track {
+    display: flex;
+    gap: 40px;
+    width: max-content;
+    white-space: nowrap;
+    padding: 8px 0;
+
+    animation: scrollText 15s linear infinite;
+    will-change: transform;
+}
+
+.ticker-track span {
     color: #00ff9d;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+/* STATES */
+.answer-button.correct {
+    background: #24f37a7e !important;
+    color: white !important;
+}
+
+.answer-button.wrong {
+    background: #f24633b8 !important;
+    border-color: #f24633b8 !important;
+    color: white !important;
+}
+
+/* PROGRESS */
+.progress-container {
+    width: 100%;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 5px;
+    margin-bottom: 16px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #43bd5d, #00cec9);
+    transition: width 0.3s ease;
 }
 
 /* ANIMATIONS */
@@ -273,178 +291,52 @@ body::before {
     }
 }
 
-@keyframes correctPop {
-    0% {
-        transform: scale(1);
-        box-shadow: 0 0 0 rgba(46, 204, 113, 0);
+/* DESKTOP */
+
+@media (min-width: 768px) {
+
+    .app {
+        min-height: 100vh;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        padding-top: 60px;
     }
 
-    50% {
-        transform: scale(1.06);
-        box-shadow: 0 0 25px rgba(46, 204, 113, 0.5);
+    .quiz-card,
+    .result-screen {
+        padding: 40px 30px;
+        border-radius: 20px;
     }
 
-    100% {
-        transform: scale(1.03);
-        box-shadow: 0 0 18px rgba(46, 204, 113, 0.4);
+    .question {
+        font-size: 1.8rem;
+        margin-bottom: 30px;
+    }
+
+    .answer-button {
+        padding: 16px;
+        font-size: 1rem;
+    }
+
+    .answers {
+        gap: 16px;
+    }
+
+    .ticker-track {
+        gap: 60px;
     }
 }
 
-/* TICKER */
-.ticker {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 999;
+/* hover only desktop */
+@media (hover: hover) and (pointer: fine) {
+    .result-screen button:hover {
+        background: rgba(0, 255, 140, 0.25);
+        transform: translateY(-2px);
+    }
 
-    background: rgba(0, 0, 0, 0.35);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(0, 255, 140, 0.15);
-
-    opacity: 1;
-    transition: opacity 3s ease, filter 3s ease, transform 3s ease;
-}
-
-.ticker-track {
-    display: flex;
-    gap: 60px;
-    width: max-content;
-    white-space: nowrap;
-    padding: 10px 0;
-
-    animation: scrollText 15s linear infinite;
-}
-
-.ticker-track span {
-    color: #00ff9d;
-    font-weight: bold;
-    letter-spacing: 2px;
-    text-shadow: 0 0 10px rgba(0, 255, 140, 0.35);
-}
-
-.ticker.fade {
-    opacity: 0;
-    filter: blur(12px);
-    transform: translateY(-8px);
-    pointer-events: none;
-}
-
-/* SLIDE SYSTEM */
-.quiz-card {
-    position: relative;
-    transform-origin: center;
-    will-change: transform, opacity;
-
-    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
-        opacity 0.6s ease;
-
-    transform: translateX(0);
-    opacity: 1;
-}
-
-.slide-in {
-    transform: translateX(0);
-    opacity: 1;
-}
-
-.slide-out {
-    transform: translateX(-120%);
-    opacity: 0;
-}
-
-/* ANSWER STATES */
-.answer-button.correct {
-    background: #24f37a7e !important;
-    color: white !important;
-    border: 1px solid #256741db !important;
-    box-shadow: 0 0 18px rgba(46, 204, 113, 0.4);
-}
-
-.answer-button.wrong {
-    background: #f24633b8 !important;
-    color: white !important;
-    border: 1px solid #822d23c6 !important;
-    box-shadow: 0 0 18px rgba(231, 76, 60, 0.4);
-}
-
-.answer-button.correct-pulse {
-    background: rgba(46, 204, 113, 0.25);
-    border: 2px solid #2ecc71;
-    z-index: 2;
-    transform-origin: center;
-    animation: correctPop 0.6s ease-in-out 2;
-}
-
-/* PROGRESS BAR */
-.progress-container {
-    width: 100%;
-    height: 10px;
-    background: rgba(255, 255, 255, 0.08);
-    border-radius: 5px;
-    margin-bottom: 20px;
-    overflow: hidden;
-}
-
-.progress-bar {
-    height: 100%;
-    background: linear-gradient(90deg, #43bd5d, #00cec9);
-    transition: width 0.3s ease;
-}
-
-/* TICKER OPT */
-.ticker-track {
-    will-change: transform;
-}
-
-button.play-again-btn {
-    width: 60%;
-    max-width: 320px;
-
-    padding: 14px 16px;
-    margin-top: 20px;
-
-    border-radius: 12px !important;
-
-    border: 1px solid rgba(0, 255, 140, 0.4) !important;
-    background: rgba(0, 255, 140, 0.12) !important;
-
-    color: #eaffea;
-    font-size: 1rem;
-    font-weight: bold;
-
-    cursor: pointer;
-
-    transition: all 0.2s ease;
-
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-
-    display: inline-block;
-}
-
-/* 🔄 PLAY AGAIN = exakt samma bredd som övriga knappar */
-.play-again-btn {
-    width: 60%;
-    max-width: 320px;
-
-    padding: 14px 16px;
-    margin-top: 16px;
-
-    border-radius: 12px;
-    border: 1px solid rgba(0, 255, 140, 0.4);
-    background: rgba(0, 255, 140, 0.12);
-
-    color: #eaffea;
-    font-size: 1rem;
-    font-weight: bold;
-
-    cursor: pointer;
-    transition: all 0.2s ease;
-
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-
-    display: block;
-    /* 🔥 viktig: matchar input/spara */
+    .answer-button:hover {
+        background: rgba(0, 255, 140, 0.12);
+        transform: translateY(-2px);
+    }
 }

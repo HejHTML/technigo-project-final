@@ -21,16 +21,19 @@ export const Quiz = () => {
 
         return () => clearTimeout(timer)
     }, [])
-
     const handleAnswer = (option) => {
         const correct = questions[current].answer
+        const isCorrect = option === correct
 
         setSelected(option)
         setShowResult(true)
 
-        if (option === correct) {
+        if (isCorrect) {
             setScore((prev) => prev + 1)
         }
+
+        // kortare om rätt, längre om fel
+        const feedbackTime = isCorrect ? 800 : 3000
 
         setTimeout(() => {
             setAnimating(true)
@@ -47,9 +50,9 @@ export const Quiz = () => {
                 setSelected(null)
                 setShowResult(false)
                 setAnimating(false)
-            }, 600)
 
-        }, 2000)
+            }, 600)
+        }, feedbackTime)
     }
 
     const progress = ((current + 1) / questions.length) * 100

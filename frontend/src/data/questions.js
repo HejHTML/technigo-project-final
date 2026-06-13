@@ -1,76 +1,102 @@
 export const questions = [
   {
-    question: "Vad står HTTPS för?",
+    question: "Du får ett mejl från någon som utger sig för att vara IT-avdelningen och ber dig klicka på en länk för att återställa ditt lösenord. Vad bör du göra först?",
     options: [
-      "HyperText Transfer Protocol Secure",
-      "High Transfer Text Protocol System",
-      "Hyperlink Text Transfer Process Secure",
-      "Home Tool Transfer Protocol"
+      "Klicka på länken direkt",
+      "Svara med ditt lösenord",
+      "Kontrollera avsändaren och verifiera med IT-avdelningen",
+      "Radera alla mejl i inkorgen"
     ],
-    answer: "HyperText Transfer Protocol Secure"
+    answer: "Kontrollera avsändaren och verifiera med IT-avdelningen"
   },
   {
-    question: "Vad är ett starkt lösenord?",
+    question: "Vad är det säkraste sättet att hantera ditt lösenord?",
     options: [
-      "123456",
-      "Ditt namn",
-      "En kombination av bokstäver, siffror och symboler",
-      "password"
+      "Dela det med en kollega vid behov",
+      "Skriva det på en lapp vid datorn",
+      "Använda samma lösenord överallt",
+      "Använda unika lösenord och en lösenordshanterare"
     ],
-    answer: "En kombination av bokstäver, siffror och symboler"
+    answer: "Använda unika lösenord och en lösenordshanterare"
   },
   {
-    question: "Vad är phishing?",
+    question: "Du hittar ett okänt USB-minne i kommunhusets entré. Vad bör du göra?",
     options: [
-      "En sportfiskemetod",
-      "En cyberattack som lurar användare att avslöja information",
-      "Ett antivirusprogram",
-      "En typ av brandvägg"
+      "Ansluta det till din dator för att se vem som äger det",
+      "Ta med det hem",
+      "Lämna det till IT eller säkerhetsansvarig",
+      "Kasta det i soporna"
     ],
-    answer: "En cyberattack som lurar användare att avslöja information"
+    answer: "Lämna det till IT eller säkerhetsansvarig"
   },
   {
-    question: "Vad står 2FA för?",
+    question: "Varför är tvåfaktorsautentisering (MFA) viktigt?",
     options: [
-
-      "Två filåtkomster",
-      "Tvåfaktorsautentisering",
-      "Total Firewall Access",
-      "Transfer File Automation"
+      "Det gör datorn snabbare",
+      "Det ger ett extra skydd om lösenordet blir stulet",
+      "Det ersätter antivirus",
+      "Det gör att lösenord inte behövs"
     ],
-    answer: "Tvåfaktorsautentisering"
-  },
-
-  // 🔐 NYA REGELVERK & EU-REGULERINGAR
-
-  {
-    question: "Vad är GDPR?",
-    options: [
-      "En europeisk lag som skyddar personuppgifter",
-      "Ett antivirusprogram",
-      "En bankstandard för betalningar",
-      "En typ av brandvägg"
-    ],
-    answer: "En europeisk lag som skyddar personuppgifter"
+    answer: "Det ger ett extra skydd om lösenordet blir stulet"
   },
   {
-    question: "Vad är NIS2?",
+    question: "Vad ska du göra om du misstänker att du klickat på en skadlig länk?",
     options: [
-      "En molntjänst från Microsoft",
-      "En EU-direktiv för cybersäkerhet och kritisk infrastruktur",
-      "Ett spelutvecklingsramverk",
-      "Ett krypteringsprogram"
+      "Ignorera det och hoppas att inget händer",
+      "Stäng av skärmen",
+      "Rapportera händelsen till IT direkt",
+      "Radera webbläsaren"
     ],
-    answer: "En EU-direktiv för cybersäkerhet och kritisk infrastruktur"
+    answer: "Rapportera händelsen till IT direkt"
   },
   {
-    question: "Vad är DORA?",
+    question: "Vilken information bör normalt inte delas via okrypterad e-post?",
     options: [
-      "Ett socialt medieverktyg",
-      "En typ av ransomware",
-      "En EU-förordning för digital operativ motståndskraft inom finanssektorn",
-      "Ett operativsystem"
+      "Allmän information om öppettider",
+      "Personuppgifter och känslig information",
+      "Mötesinbjudningar",
+      "Väderprognoser"
     ],
-    answer: "En EU-förordning för digital operativ motståndskraft inom finanssektorn"
+    answer: "Personuppgifter och känslig information"
+  },
+  {
+    question: "Du lämnar arbetsplatsen för lunch. Vad bör du göra med datorn?",
+    options: [
+      "Lämna den olåst",
+      "Stäng av internet",
+      "Låsa datorn innan du går",
+      "Minska skärmens ljusstyrka"
+    ],
+    answer: "Låsa datorn innan du går"
+  },
+  {
+    question: "Vilket är ett vanligt tecken på ett phishing-mejl?",
+    options: [
+      "Det innehåller kommunens logotyp",
+      "Det har korrekt stavning",
+      "Det försöker skapa stress eller brådska",
+      "Det skickas under arbetstid"
+    ],
+    answer: "Det försöker skapa stress eller brådska"
+  },
+  {
+    question: "Vad bör du göra om en okänd person vill följa med genom en låst dörr till kontoret?",
+    options: [
+      "Släppa in personen utan frågor",
+      "Be personen använda sin egen behörighet eller kontakta receptionen",
+      "Hålla upp dörren för att vara hjälpsam",
+      "Ignorera personen"
+    ],
+    answer: "Be personen använda sin egen behörighet eller kontakta receptionen"
+  },
+  {
+    question: "Varför är det viktigt att installera säkerhetsuppdateringar?",
+    options: [
+      "För att ändra datorns bakgrundsbild",
+      "För att frigöra hårddiskutrymme",
+      "För att täppa till kända säkerhetshål",
+      "För att få fler program"
+    ],
+    answer: "För att täppa till kända säkerhetshål"
   }
-]
+];
