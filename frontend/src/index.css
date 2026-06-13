@@ -296,7 +296,7 @@ body::before {
         justify-content: center;
         align-items: center;
         padding: 20px;
-        padding-top: 60px;
+        padding-top: 10px;
     }
 
     .quiz-card,
