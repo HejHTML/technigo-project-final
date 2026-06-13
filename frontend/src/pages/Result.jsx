@@ -34,7 +34,7 @@ export const Result = () => {
         fetchLeaderboard()
     }, [])
 
-    // 💾 save score (valfritt)
+    // 💾 save score
     const saveScoreToBackend = async () => {
         const trimmedName = name.trim()
 
@@ -57,7 +57,7 @@ export const Result = () => {
         }
     }
 
-    // 🔄 play again (ALLTID tillgänglig)
+    // 🔄 play again
     const handlePlayAgain = () => {
         setScore(0)
         setName("")
@@ -73,7 +73,7 @@ export const Result = () => {
                 <h1>Test avklarat! 🎉</h1>
                 <h2>Ditt resultat: {score}</h2>
 
-                {/* INPUT + SAVE (valfritt) */}
+                {/* INPUT + SAVE */}
                 {!saved && (
                     <>
                         <input

@@ -62,9 +62,9 @@ export const Quiz = () => {
         <>
             <div className={`ticker ${tickerRunning ? "" : "fade"}`}>
                 <div className="ticker-track">
-                    <span>• IS YOUR PASSWORD GOOD ENOUGH? •</span>
-                    <span>⚡ TEST YOUR KNOWLEDGE IN CYBERSECURITY ⚡</span>
-                    <span>• BECOME WISER WITH CYBERWISE •</span>
+                    <span>• DUGER MITT LÖSENORD? •</span>
+                    <span>⚡ TESTA DINA KUNSKAPER ⚡</span>
+                    <span>• BLI MER CYBERSÄKER MED CYBERWISE •</span>
                 </div>
             </div>
 
@@ -92,7 +92,8 @@ export const Quiz = () => {
                             const isCorrectAnswer = option === correct
                             const isWrongChoice = showResult && selected === option && option !== correct
 
-                            // 🔥 VIKTIG LOGIK
+                            // SHOW PULSE ON CORRECT ANSWER IF USER GOT IT WRONG
+
                             const showCorrectPulse =
                                 showResult &&
                                 selected !== correct &&
