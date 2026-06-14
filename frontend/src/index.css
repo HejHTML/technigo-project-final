@@ -15,7 +15,7 @@ body {
     font-family: Arial, sans-serif;
 }
 
-/* 🌫️ fog overlay */
+/* fog overlay */
 body::before {
     content: "";
     position: fixed;
@@ -28,7 +28,7 @@ body::before {
     pointer-events: none;
 }
 
-/* 📦 LAYOUT (MOBILE) */
+/* LAYOUT (MOBILE FIRST) */
 .app {
     min-height: auto;
     display: flex;
@@ -39,7 +39,11 @@ body::before {
     padding-top: 30px;
 }
 
-/* 🧠 CARD BASE */
+.ticker {
+    display: none;
+}
+
+/* CARD BASE */
 .quiz-card,
 .result-screen {
     width: 100%;
@@ -127,7 +131,7 @@ body::before {
 /* INPUT */
 .result-screen input {
     width: 100%;
-    max-width: 320px;
+    max-width: 300px;
 
     padding: 16px;
     margin-top: 16px;
@@ -202,39 +206,6 @@ body::before {
     margin-bottom: 10px;
 
     backdrop-filter: blur(10px);
-}
-
-/* TICKER */
-.ticker {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 999;
-
-    background: rgba(0, 0, 0, 0.35);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(0, 255, 140, 0.15);
-
-    opacity: 1;
-    animation: tickerFadeOut 12s ease forwards;
-}
-
-.ticker-track {
-    display: flex;
-    gap: 40px;
-    width: max-content;
-    white-space: nowrap;
-    padding: 8px 0;
-
-    animation: scrollText 20s linear infinite;
-    will-change: transform;
-}
-
-.ticker-track span {
-    color: #00ff9dd7;
-    font-weight: bold;
-    letter-spacing: 2px;
 }
 
 /* STATES */
@@ -320,6 +291,41 @@ body::before {
         padding-top: 10px;
     }
 
+    /* TICKER */
+    .ticker {
+        display: block;
+        position: fixed;
+        overflow: hidden;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 999;
+
+        background: rgba(0, 0, 0, 0.35);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(0, 255, 140, 0.15);
+
+        opacity: 1;
+        animation: tickerFadeOut 12s ease forwards;
+    }
+
+    .ticker-track {
+        display: flex;
+        gap: 60px;
+        width: max-content;
+        white-space: nowrap;
+        padding: 8px 0;
+
+        animation: scrollText 20s linear infinite;
+        will-change: transform;
+    }
+
+    .ticker-track span {
+        color: #00ff9dd7;
+        font-weight: bold;
+        letter-spacing: 2px;
+    }
+
     .quiz-card,
     .result-screen {
         padding: 40px 30px;
@@ -340,39 +346,34 @@ body::before {
         gap: 16px;
     }
 
-    .ticker-track {
-        gap: 60px;
+
+    /* hover only desktop */
+    @media (hover: hover) and (pointer: fine) {
+        .result-screen button:hover {
+            background: rgba(0, 255, 140, 0.25);
+            transform: translateY(-2px);
+        }
+
+        .answer-button:hover {
+            background: rgba(0, 255, 140, 0.12);
+            transform: translateY(-2px);
+        }
     }
-}
 
-/* hover only desktop */
-@media (hover: hover) and (pointer: fine) {
-    .result-screen button:hover {
-        background: rgba(0, 255, 140, 0.25);
-        transform: translateY(-2px);
+    .quiz-card {
+        transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+            opacity 0.6s ease;
+        will-change: transform, opacity;
     }
 
-    .answer-button:hover {
-        background: rgba(0, 255, 140, 0.12);
-        transform: translateY(-2px);
+    /* in state */
+    .slide-in {
+        transform: translateX(0);
+        opacity: 1;
     }
-}
 
-/* SLIDE SYSTEM (saknas i din CSS) */
-.quiz-card {
-    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
-        opacity 0.6s ease;
-    will-change: transform, opacity;
-}
-
-/* in state */
-.slide-in {
-    transform: translateX(0);
-    opacity: 1;
-}
-
-/* out state */
-.slide-out {
-    transform: translateX(-120%);
-    opacity: 0;
-}
+    /* out state */
+    .slide-out {
+        transform: translateX(-120%);
+        opacity: 0;
+    }
