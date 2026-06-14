@@ -15,6 +15,10 @@ body {
     font-family: Arial, sans-serif;
 }
 
+.ticker {
+    display: none;
+}
+
 /* fog overlay */
 body::before {
     content: "";
@@ -37,10 +41,6 @@ body::before {
 
     padding: 10px;
     padding-top: 30px;
-}
-
-.ticker {
-    display: none;
 }
 
 /* CARD BASE */
@@ -236,6 +236,11 @@ body::before {
     transition: width 0.3s ease;
 }
 
+.quiz-card {
+    transform: translateX(0);
+    opacity: 1;
+}
+
 /* ANIMATIONS */
 @keyframes gradientMove {
     0% {
@@ -345,7 +350,6 @@ body::before {
     .answers {
         gap: 16px;
     }
-
 
     /* hover only desktop */
     @media (hover: hover) and (pointer: fine) {
