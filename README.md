@@ -98,9 +98,48 @@ If I continued developing the project, I would:
 
 ---
 
-# 📦 Getting started (local development)
+# Getting started (local development)
 
 ## 1. Clone the repository
 
+## Getting started (local development)
+
+### 1. Clone the repository
 ```bash
 git clone https://github.com/HejHTML/technigo-project-final.git
+cd technigo-project-final
+```
+
+### 2. Install dependencies
+```bash
+npm install
+```
+
+### 3. Start the frontend
+```bash
+npm run dev
+```
+
+## Backend setup (server)
+
+```bash
+cd server
+npm install
+npm run dev
+```
+
+## 🌍 Environment variables
+
+Create a `.env` file inside the `server` folder:
+
+```
+MONGO_URI=your_mongodb_connection_string
+PORT=5000
+```
+
+## Run full project
+
+Frontend: http://localhost:5173  
+Backend: http://localhost:5000  
+
+Make sure both servers are running at the same time.
