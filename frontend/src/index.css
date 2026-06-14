@@ -79,6 +79,27 @@ body::before {
     cursor: pointer;
 }
 
+.welcome-screen button:hover {
+    background: rgba(0, 255, 140, 0.08);
+    transform: translateY(-2px);
+}
+
+.secondary-button {
+    margin-top: 10px;
+    padding: 12px;
+    border-radius: 12px;
+    border: 1px solid rgba(0, 255, 140, 0.3);
+    background: transparent;
+    color: #bfffe0;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.secondary-button:hover {
+    background: rgba(0, 255, 140, 0.08);
+    transform: translateY(-2px);
+}
+
 /* CARD BASE */
 .quiz-card,
 .result-screen {

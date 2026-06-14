@@ -85,6 +85,12 @@ export const Quiz = () => {
                             Starta quiz
                         </button>
 
+                        <button
+                            onClick={() => navigate("/result")}
+                            className="secondary-button"
+                        >
+                            Gå direkt till resultat
+                        </button>
                     </div>
                 </div>
                 <footer className="footer">
