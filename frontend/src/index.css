@@ -156,6 +156,13 @@ body::before {
     transform: scale(0.98);
 }
 
+.footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
 /* RESULT SCREEN */
 .result-screen {
     display: flex;

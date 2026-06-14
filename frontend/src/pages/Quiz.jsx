@@ -87,6 +87,9 @@ export const Quiz = () => {
 
                     </div>
                 </div>
+                <footer className="footer">
+                    <p>Built by Emma Franzén • CyberWise 2026</p>
+                </footer>
             </>
         )
     }
@@ -148,6 +151,10 @@ export const Quiz = () => {
 
                 </div>
             </div>
+            <footer className="footer">
+                <p>Built by Emma Franzén • CyberWise 2026</p>
+            </footer>
         </>
+
     )
 }
