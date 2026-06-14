@@ -45,7 +45,7 @@ export const questions = [
       "Ignorera det och hoppas att inget händer",
       "Stäng av skärmen",
       "Radera webbläsaren",
-      "Rapportera händelsen  till IT direkt",
+      "Rapportera händelsen till IT direkt",
 
     ],
     answer: "Rapportera händelsen till IT direkt"
