@@ -62,9 +62,9 @@ export const Quiz = () => {
         <>
             <div className={`ticker ${tickerRunning ? "" : "fade"}`}>
                 <div className="ticker-track">
-                    <span>• DUGER MITT LÖSENORD? •</span>
+                    <span> DUGER MITT LÖSENORD? </span>
                     <span>⚡ TESTA DINA KUNSKAPER ⚡</span>
-                    <span>• BLI MER CYBERSÄKER MED CYBERWISE •</span>
+                    <span> BLI MER CYBERSÄKER MED CYBERWISE! </span>
                 </div>
             </div>
 
