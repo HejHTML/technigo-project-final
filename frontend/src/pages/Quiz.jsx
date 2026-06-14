@@ -6,6 +6,7 @@ import { questions } from "../data/questions"
 export const Quiz = () => {
     const { score, setScore } = useQuiz()
     const [current, setCurrent] = useState(0)
+    const [quizStarted, setQuizStarted] = useState(false)
     const [tickerRunning, setTickerRunning] = useState(true)
 
     const [selected, setSelected] = useState(null)
@@ -57,16 +58,40 @@ export const Quiz = () => {
 
     const progress = ((current + 1) / questions.length) * 100
     const correct = questions[current].answer
+    if (!quizStarted) {
+        return (
+            <>
+                <div className={`ticker ${tickerRunning ? "" : "fade"}`}>
+                    <div className="ticker-track">
+                        <span> DUGER MITT LÖSENORD? </span>
+                        <span>⚡ TESTA DINA KUNSKAPER ⚡</span>
+                        <span> BLI MER CYBERSÄKER MED CYBERWISE! </span>
+                    </div>
+                </div>
 
+                <div className="app">
+                    <div className="quiz-card welcome-screen">
+
+                        <h1>🛡️ Välkommen till CyberWise</h1>
+
+                        <p>
+                            Testa dina kunskaper om cybersäkerhet!
+                        </p>
+
+                        <button
+                            onClick={() => setQuizStarted(true)}
+                            className="start-button"
+                        >
+                            Starta quiz
+                        </button>
+
+                    </div>
+                </div>
+            </>
+        )
+    }
     return (
         <>
-            <div className={`ticker ${tickerRunning ? "" : "fade"}`}>
-                <div className="ticker-track">
-                    <span> DUGER MITT LÖSENORD? </span>
-                    <span>⚡ TESTA DINA KUNSKAPER ⚡</span>
-                    <span> BLI MER CYBERSÄKER MED CYBERWISE! </span>
-                </div>
-            </div>
 
             <div className="app">
                 <div key={current} className={`quiz-card ${animating ? "slide-out" : "slide-in"}`}>
