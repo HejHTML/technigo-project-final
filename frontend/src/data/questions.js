@@ -44,16 +44,17 @@ export const questions = [
     options: [
       "Ignorera det och hoppas att inget händer",
       "Stäng av skärmen",
-      "Rapportera händelsen till IT direkt",
-      "Radera webbläsaren"
+      "Radera webbläsaren",
+      "Rapportera händelsen  till IT direkt",
+
     ],
     answer: "Rapportera händelsen till IT direkt"
   },
   {
     question: "Vilken information bör normalt inte delas via okrypterad e-post?",
     options: [
-      "Allmän information om öppettider",
       "Personuppgifter och känslig information",
+      "Allmän information om öppettider",
       "Mötesinbjudningar",
       "Väderprognoser"
     ],
@@ -72,9 +73,9 @@ export const questions = [
   {
     question: "Vilket är ett vanligt tecken på ett phishing-mejl?",
     options: [
+      "Det försöker skapa stress eller brådska",
       "Det innehåller kommunens logotyp",
       "Det har korrekt stavning",
-      "Det försöker skapa stress eller brådska",
       "Det skickas under arbetstid"
     ],
     answer: "Det försöker skapa stress eller brådska"
@@ -82,7 +83,7 @@ export const questions = [
   {
     question: "Vad bör du göra om en okänd person vill följa med genom en låst dörr till kontoret?",
     options: [
-      "Släppa in personen utan frågor",
+      "Släppa in personen om den kan tala om vem den ska besöka",
       "Be personen använda sin egen behörighet eller kontakta receptionen",
       "Hålla upp dörren för att vara hjälpsam",
       "Ignorera personen"
@@ -92,10 +93,10 @@ export const questions = [
   {
     question: "Varför är det viktigt att installera säkerhetsuppdateringar?",
     options: [
-      "För att ändra datorns bakgrundsbild",
+      "För att kunna ändra datorns bakgrundsbild",
       "För att frigöra hårddiskutrymme",
       "För att täppa till kända säkerhetshål",
-      "För att få fler program"
+      "För att få tillgång till fler program"
     ],
     answer: "För att täppa till kända säkerhetshål"
   }
