@@ -140,6 +140,6 @@ PORT=5000
 ## Run full project
 
 Frontend: http://localhost:5173  
-Backend: http://localhost:5000  
+Backend: http://localhost:5000  ( or other free port)
 
 Make sure both servers are running at the same time.
