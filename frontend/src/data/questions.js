@@ -399,9 +399,9 @@ export const questions = [
   {
     question: "Vad är malware?",
     options: [
-      "Skadlig kod som kan infektera system",
       "En metod för att säkerhetskopiera filer",
       "Ett protokoll för webbsidor",
+      "Skadlig kod som kan infektera system",
       "En teknik för att segmentera nätverk",
     ],
     answer: "Skadlig kod som kan infektera system",
@@ -422,10 +422,10 @@ export const questions = [
   {
     question: "Vad innebär social engineering?",
     options: [
-      "Att manipulera människor för att kringgå tekniska eller organisatoriska skydd",
       "Att bygga om organisationens nätverk",
       "Att kryptera all information i en databas",
       "Att dela upp ett nätverk i flera tekniska segment",
+      "Att manipulera människor för att kringgå tekniska eller organisatoriska skydd",
     ],
     answer:
       "Att manipulera människor för att kringgå tekniska eller organisatoriska skydd",
@@ -445,9 +445,9 @@ export const questions = [
   {
     question: "Vad innebär Security Posture?",
     options: [
-      "Den samlade nivån av skydd och risk i en organisation",
       "Antalet brandväggar som organisationen använder",
       "Hur snabbt organisationens nätverk fungerar",
+      "Den samlade nivån av skydd och risk i en organisation",
       "Hur många användarkonton som finns i organisationen",
     ],
     answer: "Den samlade nivån av skydd och risk i en organisation",
@@ -478,9 +478,9 @@ export const questions = [
   {
     question: "Vad betyder förkortningen VPN?",
     options: [
-      "Virtual Private Network",
       "Verified Public Network",
       "Virtual Protected Node",
+      "Virtual Private Network",
       "Verified Private Node",
     ],
     answer: "Virtual Private Network",
