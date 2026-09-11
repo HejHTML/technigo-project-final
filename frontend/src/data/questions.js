@@ -286,8 +286,8 @@ export const questions = [
   {
     question: "Vad är en switch?",
     options: [
-      "En enhet som kopplar samman enheter inom samma lokala nätverk",
       "En tjänst som översätter domännamn till IP-adresser",
+      "En enhet som kopplar samman enheter inom samma lokala nätverk",
       "En enhet som alltid kopplar det lokala nätverket till internet",
       "Ett program som krypterar filer",
     ],
@@ -333,10 +333,10 @@ export const questions = [
   {
     question: "Vad är den viktigaste skillnaden mellan HTTP och HTTPS?",
     options: [
-      "HTTPS använder kryptering för kommunikationen",
       "HTTP fungerar bara på interna nätverk",
       "HTTPS kan endast användas för e-post",
       "HTTP kräver alltid MFA medan HTTPS inte gör det",
+      "HTTPS använder kryptering för kommunikationen",
     ],
     answer: "HTTPS använder kryptering för kommunikationen",
   },
@@ -377,8 +377,8 @@ export const questions = [
   {
     question: "Vad är en attack surface, eller angreppsyta?",
     options: [
-      "Alla delar av en miljö som kan exponeras för attacker",
       "En lista över organisationens anställda",
+      "Alla delar av en miljö som kan exponeras för attacker",
       "En säkerhetskopia av organisationens system",
       "En metod för att kryptera information",
     ],
